@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div>
+    <section class="h-100 h-custom" style="background-color: #8fc4b7;">
+        <h6 class="mb-0" style="font-size: larger;"><a routerLink="/vendor" class="text-body"><i
+            class="fas fa-long-arrow-alt-left me-2" ></i>Back</a></h6>
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="card rounded-3">
+                        <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg"
+                            class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem; max-height: 200px;"
+                            alt="Sample photo">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2"><strong>Cuisine Details</strong></h3>
+
+                            <form class="px-md-2" (ngSubmit)="updateCuisine(cuisine)">
+
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example1q">Cuisine Name</label>
+                                    <input type="text" id="form3Example1q" class="form-control" [(ngModel)]="cuisine.cuisineName" name="name"/>
+                                    
+                                </div>
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example1q">Cuisine Price</label>
+                                    <input type="number" id="form3Example1q" class="form-control" [(ngModel)]="cuisine.cuisinePrice" name="cuisinePrice"/>
+                                    
+                                </div>
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example1q">Cuisine Description</label>
+                                    <input type="text" id="form3Example1q" class="form-control" [(ngModel)]="cuisine.description" name="cuisineDescription"/>
+                                    
+                                </div>
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3ExampleFile">Cuisine Image</label>
+                                    <input type="file" id="form3ExampleFile" class="form-control"
+                                        (change)="uploadImage($event)" />
+                                </div>
+
+                                <button type="submit"
+                                    class="btn btn-success btn-lg mb-1">Update</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

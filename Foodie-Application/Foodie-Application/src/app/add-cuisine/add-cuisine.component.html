@@ -1,0 +1,66 @@
+<app-header></app-header>
+<div>
+    <section class="h-100 h-custom" style="background-color: #8fc4b7;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="card rounded-3">
+                        <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg"
+                            class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem; max-height: 200px;"
+                            alt="Sample photo">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2"><strong>Cuisine Details</strong></h3>
+
+                            <form class="px-md-2" (ngSubmit)="addCuisine()">
+
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example1q">Cuisine Name</label>
+                                    <input type="text" id="form3Example1q" class="form-control" [(ngModel)]="cuisine.cuisineName" name="name"  #name="ngModel" required minlength="5" maxlength="21"/>
+                                    <span *ngIf="name.invalid && (name.dirty || name.touched)">
+                                        <span *ngIf="name?.errors?.['required']"><mat-error>Cuisine name is required.</mat-error></span>
+                                        <span  *ngIf="name?.errors?.['minlength']"><mat-error>Cuisine name must be at least 5 characters long.</mat-error></span>
+                                        <span *ngIf="name?.errors?.['maxlength']"><mat-error>Cuisine name cannot be more than 20 characters long.</mat-error></span>
+                                    </span> 
+                                    
+                                </div>
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example1q">Cuisine Price</label>
+                                    <input type="number" id="form3Example1q" class="form-control" [(ngModel)]="cuisine.cuisinePrice" name="cuisinePrice" #cuisinePrice="ngModel" required min="1" max="500"/>
+                                    <span *ngIf="cuisinePrice.invalid && (cuisinePrice.dirty || cuisinePrice.touched)">
+                                        <span *ngIf="cuisinePrice?.errors?.['required']"><mat-error>Cuisine Price is required</mat-error></span>
+                                        <span *ngIf="cuisinePrice?.errors?.['min']"><mat-error>Cuisine Price must be at least 1</mat-error></span>
+                                        <span *ngIf="cuisinePrice?.errors?.['max']"><mat-error>Cuisine Price cannot be more than 500</mat-error></span>
+                                    </span>   
+                                </div>
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example1q">Cuisine Description</label>
+                                    <input type="text" id="form3Example1q" class="form-control" [(ngModel)]="cuisine.description" name="cuisineDescription" #cuisineDescription="ngModel" required minlength="10" maxlength="500"/>
+                                    <span *ngIf="cuisineDescription.invalid && (cuisineDescription.dirty || cuisineDescription.touched)">
+                                        <span *ngIf="cuisineDescription?.errors?.['required']"><mat-error>Cuisine Description is required.</mat-error></span>
+                                        <span  *ngIf="cuisineDescription?.errors?.['minlength']"><mat-error>Cuisine Description must be at least 10 characters long.</mat-error></span>
+                                        <span *ngIf="cuisineDescription?.errors?.['maxlength']"><mat-error>Cuisine Description cannot be more than 500 characters long.</mat-error></span>
+                                    </span>
+                                </div>
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3ExampleFile">Cuisine Image</label>
+                                    <input type="file" id="form3ExampleFile" class="form-control"
+                                        (change)="uploadImage($event)" />
+                                    <!-- Display image preview if available -->
+                                    <!-- <img *ngIf="registration.get('image')?.value"
+                                [src]="registration.get('image')?.value" alt="Image Preview" height="150"
+                                width="150"> -->
+                                </div>
+                                <hr>
+
+                                <button type="submit"
+                                    class="btn btn-success btn-lg mb-1">Add</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

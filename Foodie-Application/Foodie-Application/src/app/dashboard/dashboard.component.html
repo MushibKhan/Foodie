@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="bg-image">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form>
+              <div class="form-group">
+                <label for="locationSelect">Location</label>
+                <select class="form-control" id="locationSelect"  (change)="onLocationChange($event)">
+                  <option selected disabled> Select a location</option>
+                  <option value="Bulandshahr">Bulandshahr</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Karnataka">Karnataka</option>
+                </select>
+              </div>
+            </form>
+            <H1 style="color: black;">{{location}}</H1>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="restaurant">
+  <div *ngFor="let restaurant of restaurants" style="padding: 30px;">
+      <mat-card class="example-card" style="text-align: center;">
+
+          <img mat-card-image src={{restaurant.restaurantImage}} (click)="restroDetails(restaurant.restaurantId)"
+              style="height:200px;">
+          <mat-card-content>
+              <h2>{{restaurant.restaurantName}}</h2>
+              <h3>Location : {{restaurant.restaurantLocation}}</h3>
+          </mat-card-content>
+          <mat-card-actions>
+              <span *ngIf="isCustomer" (click)="addFavorite(restaurant)"><mat-icon>favorite</mat-icon></span>
+          </mat-card-actions>
+      </mat-card>
+  </div>
+</div>
+<app-footer></app-footer>

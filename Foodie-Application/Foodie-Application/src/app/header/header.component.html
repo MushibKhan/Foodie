@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Foodie</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><span style="display: flex; align-items: center;">
+            <mat-icon>home</mat-icon>Home</span> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="!logInStatus">
+        <a class="nav-link" routerLink="/login"><span style="display: flex; align-items: center;">
+            <mat-icon>login</mat-icon><strong>Login</strong></span></a>
+      </li>
+    </ul>
+    <div class="ml-auto">
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="isCustomer">
+          <a class="nav-link" routerLink="/cart"><span style="display: flex; align-items: center;">
+              <mat-icon>shopping_cart</mat-icon><Strong>Cart</Strong></span></a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isCustomer">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span style="display: flex; align-items: center;">
+              <mat-icon>account_circle</mat-icon>{{user.name}}</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/profile"><span style="display: flex; align-items: center;">
+                <mat-icon>account_circle</mat-icon>Profile</span></a>
+            <a class="dropdown-item" routerLink="/favorite"><span style="display: flex; align-items: center;">
+                <mat-icon>favorite_border</mat-icon>Favorite</span></a>
+            <a class="dropdown-item" routerLink="/dashboard" (click)="logOut()"> <span
+                style="display: flex; align-items: center;">
+                <mat-icon>exit_to_app</mat-icon>logout</span></a>
+          </div>
+        </li>
+        <li class="nav-item" *ngIf="isVendor">
+          <a class="dropdown-item" routerLink="/home" (click)="logOut()"> <span
+            style="display: flex; align-items: center;">
+            <mat-icon>exit_to_app</mat-icon>logout</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

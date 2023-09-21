@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="restaurant" style="background-image: url({{restaurant.restaurantImage}});">
+    <h1>{{restaurant.restaurantName}}</h1>
+</div>
+<hr>
+
+
+<div class="container">
+    <div class="input-group rounded" id="search">
+        <input type="search" class="form-control rounded" placeholder="Search Cuisine" aria-label="Search" aria-describedby="search-addon"  [(ngModel)]="search" (input)="onSearch()"/>
+        <span class="input-group-text border-0" id="search-addon">
+            <!-- <mat-icon >search</mat-icon> -->
+        </span>
+    </div>
+</div>
+<hr>
+
+<div class="card-container">
+    <div *ngFor="let cuisine of cuisines" class="card">
+        <mat-card class="example-card">
+            <div mat-card-avatar class="example-header-image" style="background-image: url({{cuisine.cuisineImage}});"></div>
+            <mat-card-content>
+                <mat-card-title>{{cuisine.cuisineName}}</mat-card-title>
+                <mat-card-subtitle>Price: {{cuisine.cuisinePrice}}</mat-card-subtitle>
+                <mat-card-subtitle>Description: {{cuisine.description}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-actions>
+                <span *ngIf="isCustomer" (click)="addToCart(cuisine)"><mat-icon>shopping_cart</mat-icon></span>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

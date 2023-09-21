@@ -1,0 +1,32 @@
+.header {
+    background-image: url('src/assets/Wallpapers/pexels-eric-mufasa-1342641.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 20pc;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.header>h1 {
+    font-family: "Your-Font-Name", sans-serif;
+    font-size: 5vw;
+    /* Responsive font size based on viewport width */
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
+div[style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.example-card {
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  div[style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;"] {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}

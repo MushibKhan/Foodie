@@ -1,0 +1,25 @@
+.restaurant {
+    background-size: cover;
+    background-position: center;
+    height: 25pc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .restaurant h1 {
+    font-size: 6rem;
+    margin: 10px;
+    color: bisque;
+  }
+
+  button{
+    border-radius: 10px;
+    box-shadow: lightseagreen 2px 2px 2px 2px;
+  }
+  
+ 
+  

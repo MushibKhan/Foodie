@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="header">
+<h1>Favorite Restaurants</h1>
+</div>
+
+
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;" >
+    <div *ngFor = "let restaurant of restaurants" style="padding: 30px;">
+        <mat-card class="example-card" style="text-align: center;">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{restaurant.restaurantName}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src={{restaurant.restaurantImage}} (click)="restroDetails(restaurant.restaurantId)" style="height:200px;">
+            <mat-card-actions>
+                <span (click)="deleteFavorite(restaurant.restaurantId)"><mat-icon>delete</mat-icon></span>
+           </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

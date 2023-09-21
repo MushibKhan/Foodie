@@ -1,0 +1,96 @@
+<section class="vh-100 bg-image"
+    style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-80">
+                <div class="col-12 col-md-9 col-lg-6 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-4">
+                            <h2 class="text-uppercase text-center mb-2">Register as Vendor</h2>
+
+                            <form [formGroup]="registration" (ngSubmit)="onSubmit()">
+
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example1cg">Your Name</label>
+                                    <input type="text" id="form3Example1cg" class="form-control"
+                                        formControlName="name" />
+                                    <span
+                                        *ngIf="registration.get('name')?.invalid &&(registration.get('name')?.dirty || registration.get('name')?.touched)">
+                                        <span *ngIf="registration.get('name')?.errors?.['required']"><mat-error>Name is Required</mat-error></span>
+                                        <span *ngIf="registration.get('name')?.errors?.['pattern']"><mat-error>Enter valid Name</mat-error></span>
+                                    </span>
+                                </div>
+
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example3cg">Your Email</label>
+                                    <input type="email" id="form3Example3cg" class="form-control"
+                                        formControlName="emailId" />
+                                    <span
+                                        *ngIf="registration.get('emailId')?.invalid &&(registration.get('emailId')?.dirty || registration.get('emailId')?.touched)">
+                                        <span *ngIf="registration.get('emailId')?.errors?.['required']"><mat-error>Email-Id is Required</mat-error></span>
+                                        <span *ngIf="registration.get('emailId')?.errors?.['pattern']"><mat-error>Enter Valid Email-Id</mat-error></span>
+                                    </span>
+                                </div>
+
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example4password">Password</label>
+                                    <input type="password" id="form3Example4password" class="form-control"
+                                        formControlName="password" />
+                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                    <span
+                                        *ngIf="registration.get('password')?.invalid &&(registration.get('password')?.dirty || registration.get('password')?.touched)">
+                                        <span *ngIf="registration.get('password')?.errors?.['required']">Password is required</span>
+                                        <span *ngIf="registration.get('password')?.errors?.['minlength']"><mat-error>Password Should have minimum 8 characters</mat-error></span>    
+                                    </span>
+                                </div>
+
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example4confirmPassword">Repeat your
+                                        password</label>
+                                    <input type="password" id="form3Example4confirmPassword" class="form-control"
+                                        formControlName="confirmPassword" />
+                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                    <span
+                                        *ngIf="registration.get('confirmPassword')?.invalid &&(registration.get('confirmPassword')?.dirty || registration.get('confirmPassword')?.touched)">
+                                        <span *ngIf="registration.get('confirmPassword')?.errors?.['required']"><mat-error>Confirm Password is required</mat-error></span>
+                                        <span *ngIf="registration.errors?.['passwordShouldMatch']===false"><mat-error>Password and Confirm Password should be same</mat-error></span>
+                                    </span>
+                                </div>
+
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3Example4contactNumber">Contact Number</label>
+                                    <input type="text" class="form-control" id="form3Example4contactNumber"
+                                        formControlName="contactNumber">
+                                    <span
+                                        *ngIf="registration.get('contactNumber')?.invalid &&(registration.get('contactNumber')?.dirty || registration.get('contactNumber')?.touched)">
+                                        <span *ngIf="registration.get('contactNumber')?.errors?.['required']"><mat-error>Contact Number is required</mat-error></span>
+                                        <span *ngIf="registration.get('contactNumber')?.errors?.['minlength']"><mat-error>Contact Number Should have minimum 10 digits</mat-error></span>
+                                    </span>
+
+                                </div>
+
+                                <div class="responsive-textfield-black-outline">
+                                    <label class="form-label" for="form3ExampleFile">Profile Image</label>
+                                    <input type="file" id="form3ExampleFile" class="form-control"
+                                        (change)="uploadImage($event)" />
+                                </div>
+
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit"
+                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                                </div>
+
+                                <p class="text-center text-muted mt-3 mb-0">already an vendor?
+                                    <a routerLink="/login" class="fw-bold text-body"><u>Login here</u></a>
+                                </p>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

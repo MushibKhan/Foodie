@@ -1,0 +1,10 @@
+/* Set the footer to be displayed as a block element and clear any floats */
+footer {
+    display: block;
+    clear: both;
+}
+
+/* Set the background color of the footer */
+footer {
+    background-color: #45526e;
+}

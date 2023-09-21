@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<div class="restaurant" style="background-image: url({{restaurant.restaurantImage}});">
+    <h1><Strong>{{restaurant.restaurantName}}</Strong></h1>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cuisine of cuisines">
+        <td style="width: 200px;"><img src="{{cuisine.cuisineImage}}" alt="{{cuisine.cuisineName}}" class="img-fluid"></td>
+        <td>{{cuisine.cuisineName}}</td>
+        <td><span>₹ {{cuisine.cuisinePrice}}</span></td>
+        <td>{{cuisine.description}}</td>
+        <td>
+          <span  routerLink="/updateCuisine/{{restaurant.restaurantId}}" (click)="update(cuisine)"><i class="fas fa-edit"></i></span>&nbsp;&nbsp;
+          <span  (click)="delete(cuisine.cuisineId)"><i class="fas fa-trash"></i></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-primary mt-3" routerLink="/addCuisine/{{restaurant.restaurantId}}">
+    <i class="fas fa-plus"></i> Add-Cuisine </button>
+  

@@ -1,0 +1,18 @@
+<div class="navbar d-flex justify-content-end" >
+    <a routerLink="/registerVendor" class="register-vendor" *ngIf="!isVendor && !isLogged">Add-Restaurant</a>
+    <a routerLink="/login" class="login-link" *ngIf="!isVendor && !isLogged">Login</a>
+    <a routerLink="/register" class="register-link" *ngIf="!isVendor && !isLogged">Sign-up</a>
+</div>
+
+<div class="banner">
+    <img src="/assets/Wallpapers/pexels-narda-yescas-1566837.jpg" alt="">
+    <div class="banner-content">
+        <h1 class="banner-title">Foodie</h1>
+        <p class="banner-description">Your One-Stop Food Destination</p>
+        <a routerLink="/dashboard" class="banner-link" *ngIf="!isVendor">Restaurants</a>
+        <a routerLink="/addRestaurant" class="banner-link" *ngIf="isVendor && !hasRestaurant">Add-Restaurants</a>
+        <a routerLink="/vendor" class="banner-link" *ngIf="isVendor && hasRestaurant" style="margin-left: 20px;">Go to Your Restaurant</a>
+    </div>
+</div>
+
+<app-footer></app-footer>

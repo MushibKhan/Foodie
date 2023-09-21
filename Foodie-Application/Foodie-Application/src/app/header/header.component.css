@@ -1,0 +1,10 @@
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-link-text {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+  }

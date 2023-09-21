@@ -1,0 +1,35 @@
+.restaurant{
+display: grid; 
+grid-template-columns: 25% 25% 25% 25%;
+border-radius: 10px;
+}
+
+.bg-image {
+    background-image: url('src/assets/Wallpapers/pexels-ella-olsson-1640773.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* CSS media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .restaurant {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .example-card {
+      width: 100%;
+      margin: 10px;
+  }
+}
+
+
+
+
+  
